@@ -1,14 +1,23 @@
 {
   "name": "student-organizer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "StudentOrganizer",
   "main": "app.js",
-  "author": {
-    "name": ""
-  },
+  "author": "",
   "devDependencies": {
     "eslint": "^8.21.0"
   },
-  "eslintConfig": {
-  }
+  "eslintConfig": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximkaLomakin/StudentOrganizer.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximkaLomakin/StudentOrganizer/issues"
+  },
+  "homepage": "https://github.com/MaximkaLomakin/StudentOrganizer#readme"
 }
