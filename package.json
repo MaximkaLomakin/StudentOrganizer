@@ -5,6 +5,7 @@
   "main": "app.js",
   "author": "",
   "devDependencies": {
+    "electron": "^34.0.0",
     "eslint": "^8.21.0"
   },
   "eslintConfig": {},
