@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "StudentOrganizer",
   "main": "app.js",
-  "author": "",
+  "author": "Корчуганов Максим, Костюкевич Кирилл, Чикида Данила, Мицкевич Кирилл",
   "devDependencies": {
     "electron": "^34.0.0",
     "eslint": "^8.21.0"
