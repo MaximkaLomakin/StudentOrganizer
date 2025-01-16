@@ -4,6 +4,10 @@
     <title>Заголовок</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" /> 
+    <style>
+        
+    </style>
 </head>
 <body>
     <div class="container-fluid p-5 row">
@@ -14,7 +18,7 @@
 
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="col-12 col-md-4">
             <div class="card m-2">
                 <h5 class="card-header">Напоминания</h5>
@@ -22,118 +26,91 @@
 
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="col-12">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="fs-4 text-center">I неделя</div>
-                    <div class="row">
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
+            <div id="schedule-list" class="row">
+                <div class="col-md-4 col-12">
+                    <div class="card bg-success .bg-gradient m-2">
+                        <h5 class="card-header">Понедельник</h5>
+                        <div class="card-body p-4">
+                            <h6>I неделя</h6>
+                            <div id="schedule-monday-week1">Расписание не задано</div>
+                            <hr />
+                            <h6>II неделя</h6>
+                            <div id="schedule-monday-week2">Расписание не задано</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <div class="fs-4 text-center">II неделя</div>
-                    <div class="row">
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="card m-2">
-                                <h5 class="card-header">Понедельник</h5>
-                                <div class="card-body p-4">
-
-                                </div>
-                            </div>
+                <div class="col-md-4 col-12">
+                    <div class="card bg-info .bg-gradient m-2">
+                        <h5 class="card-header">Вторник</h5>
+                        <div class="card-body p-4">
+                            <h6>I неделя</h6>
+                            <div id="schedule-tuesday-week1">Расписание не задано</div>
+                            <hr />
+                            <h6>II неделя</h6>
+                            <div id="schedule-tuesday-week2">Расписание не задано</div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 col-12">
+                    <div class="card bg-warning .bg-gradient m-2">
+                        <h5 class="card-header">Среда</h5>
+                        <div class="card-body p-4">
+                            <h6>I неделя</h6>
+                            <div id="schedule-wednesday-week1">Расписание не задано</div>
+                            <hr />
+                            <h6>II неделя</h6>
+                            <div id="schedule-wednesday-week2">Расписание не задано</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card bg-secondary .bg-gradient m-2">
+                        <h5 class="card-header">Четверг</h5>
+                        <div class="card-body p-4">
+                            <h6>I неделя</h6>
+                            <div id="schedule-thursday-week1">Расписание не задано</div>
+                            <hr />
+                            <h6>II неделя</h6>
+                            <div id="schedule-thursday-week2">Расписание не задано</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card bg-danger .bg-gradient m-2">
+                        <h5 class="card-header">Пятница</h5>
+                        <div class="card-body p-4">
+                            <h6>I неделя</h6>
+                            <div id="schedule-friday-week1">Расписание не задано</div>
+                            <hr />
+                            <h6>II неделя</h6>
+                            <div id="schedule-friday-week2">Расписание не задано</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card bg-light .bg-gradient m-2">
+                        <h5 class="card-header">Суббота</h5>
+                        <div class="card-body p-4">
+                            <h6>I неделя</h6>
+                            <div id="schedule-saturday-week1">Расписание не задано</div>
+                            <hr />
+                            <h6>II неделя</h6>
+                            <div id="schedule-saturday-week2">Расписание не задано</div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modalka" class="btn btn-primary" id="add-schedule">Добавить расписание</button>
             </div>
-        </div> 
+        </div>
     </div>
     <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <div class="modal fade" id="modalka" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content"></div>
+        </div>
+    </div>
 </body>
 </html>

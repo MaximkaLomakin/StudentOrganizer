@@ -32,7 +32,11 @@
   <ItemGroup>
     <Content Include="app.js" />
     <Content Include="assets\css\main.css" />
+    <Content Include="assets\images\trash.svg" />
     <Content Include="index.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="main.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="package.json" />
