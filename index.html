@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container-fluid p-5 row">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-5">
             <div class="card m-2">
                 <h5 class="card-header">Оценки</h5>
                 <div class="card-body p-4">
@@ -19,11 +19,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-7">
             <div class="card m-2">
                 <h5 class="card-header">Напоминания</h5>
                 <div class="card-body p-4">
-
+                    <table id="reminder-list" class="table table-hover"></table>
+                    <div  type="button" data-bs-toggle="modal" data-bs-target="#modalka" class="btn col-12 btn-outline-primary" id="add-reminder">Добавить напоминание</div>
                 </div>
             </div>
         </div>

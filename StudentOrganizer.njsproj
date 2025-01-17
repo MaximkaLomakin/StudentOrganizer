@@ -45,6 +45,7 @@
   <ItemGroup>
     <Folder Include="assets\" />
     <Folder Include="assets\css\" />
+    <Folder Include="assets\images\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
 </Project>
