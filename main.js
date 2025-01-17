@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const scheduleList = document.getElementById('schedule-list');
+    const reminderList = document.getElementById('reminder-list');
+    const reminderData = [];
     const scheduleData = {
         1: { // Первая неделя
             monday: [],
@@ -68,6 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    document.getElementById('add-reminder').addEventListener('click', () => {
+        createModalDialog('Добавить напоминание', [
+            { label: 'Напоминание', name: 'reminder', required: true },
+            { label: 'Дедлайн (дата)', name: 'deadline', type: 'date', required: true },
+        ], ({ reminder, deadline }) => {
+            reminderData.push({ reminder, deadline});
+            renderReminders();
+        });
+    });
+
     function createModalDialog(title, fields, onSubmit) {
         const modal = document.getElementById('modalka');
         const modalBS = bootstrap.Modal.getInstance(modal)
@@ -115,6 +127,52 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    const renderReminders = () => {
+        if (!reminderData.length) {
+            reminderList.innerHTML = '<div class="text-center fw-bold">Напоминания отсутствуют.</div>';
+            return;
+        }
+        reminderList.innerHTML = '';
+        reminderData.sort((a, b) => new Date(a.deadline) - new Date(b.deadline)); // Сортируем по дате
+
+        const table = document.createElement('table');
+        table.className = 'table table-hover';
+        const thead = document.createElement('thead');
+        thead.innerHTML = `<tr><th>Напоминание</th><th>Дедлайн</th><th>Действия</th></tr>`;
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+
+        reminderData.forEach(reminder => {
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            titleCell.textContent = reminder.reminder;
+            row.appendChild(titleCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = reminder.deadline;
+            row.appendChild(dateCell);
+
+            const actionsCell = document.createElement('td');
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
+            deleteButton.classList.add('btn', 'btn-primary');
+            deleteButton.addEventListener('click', () => {
+                const index = reminderData.indexOf(reminder);
+                if (index > -1) reminderData.splice(index, 1);
+                renderReminders(); // Обновляем напоминания
+            });
+            actionsCell.appendChild(deleteButton);
+            row.appendChild(actionsCell);
+
+            tbody.appendChild(row);
+        });
+
+        table.appendChild(tbody);
+        reminderList.appendChild(table);
+    };
+
     const renderSchedule = () => {
         console.log(scheduleData);
         console.log(scheduleList);
@@ -122,6 +180,10 @@ document.addEventListener('DOMContentLoaded', function () {
         [1, 2].forEach(week => { // Перебор обеих недель
             Object.keys(scheduleMap[week]).forEach(day => {
                 const container = scheduleMap[week][day];
+                if (!scheduleData[week][day].length) {
+                    container.innerHTML = '<div class="fw-bold">Расписание не задано.</div>';
+                    return;
+                }
                 container.innerHTML = ''; // Очищаем контейнер
                 scheduleData[week][day].forEach(item => {
                     const block = document.createElement('div');
@@ -129,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     block.classList.add('d-flex', 'justify-content-between');
                     block.textContent = `${item.order}. ${item.subject} ${item.notes ? `- ${item.notes}` :``}`
                     block.setAttribute('data-order', item.order);
-
+                     
                     const deleteButton = document.createElement('button');
                     deleteButton.innerHTML = '<i class="bi bi-trash"/>';
                     deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
@@ -144,4 +206,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     };
+    renderSchedule();
+    renderReminders();
 });
