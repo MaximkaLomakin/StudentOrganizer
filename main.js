@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     block.classList.add('d-flex', 'justify-content-between');
                     block.textContent = `${item.order}. ${item.subject}`;
                     block.setAttribute('data-order', item.order);
-
+                     
                     const deleteButton = document.createElement('button');
                     deleteButton.innerHTML = '<i class="bi bi-trash"/>';
                     deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
