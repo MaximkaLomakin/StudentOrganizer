@@ -57,8 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     { value: '1', label: 'Первая неделя' },
                     { value: '2', label: 'Вторая неделя' },
                 ]
-            }
-        ], ({ subject, notes, day, order,  week }) => {
+            },
+            { label: 'Примечание', name: 'notes', required: false, type: 'text' }
+        ], ({ subject, day, order, week, notes}) => {
             if (scheduleData[week][day]) {
                 scheduleData[week][day].push({ subject, notes, order });
                 scheduleData[week][day].sort((a, b) => a.order - b.order); // Сортируем занятия по порядку
@@ -126,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const block = document.createElement('div');
                     block.className = 'schedule-item';
                     block.classList.add('d-flex', 'justify-content-between');
-                    block.textContent = `${item.order}. ${item.subject}`;
+                    block.textContent = `${item.order}. ${item.subject} ${item.notes ? `- ${item.notes}` :``}`
                     block.setAttribute('data-order', item.order);
                      
                     const deleteButton = document.createElement('button');
