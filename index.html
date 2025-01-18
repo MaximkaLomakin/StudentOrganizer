@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Заголовок</title>
+    <title>Г‡Е•ДѓГ®Г«Г®ГўГ®Д™</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css" /> 
@@ -11,19 +11,20 @@
 </head>
 <body>
     <div class="container-fluid p-5 pt-2 row">
-        <div class="col-12 col-md-8 mt-4">
+        <div class="col-12 col-md-5 mt-4">
             <div class="card">
-                <h5 class="card-header">Оценки</h5>
+                <h5 class="card-header">ГЋГ¶ДєГ­Д™ДЌ</h5>
                 <div class="card-body p-4">
 
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4 mt-4">
+        <div class="col-12 col-md-7 mt-4">
             <div class="card">
-                <h5 class="card-header">Напоминания</h5>
+                <h5 class="card-header">ГЌЕ•ДЏГ®Д›ДЌГ­Е•Г­ДЌЛ™</h5>
                 <div class="card-body p-4">
-
+                    <table id="reminder-list" class="table table-hover"></table>
+                    <div  type="button" data-bs-toggle="modal" data-bs-target="#modalka" class="btn col-12 btn-outline-primary" id="add-reminder">Г„Г®ГЎЕ•ГўДЌЕ€Гј Г­Е•ДЏГ®Д›ДЌГ­Е•Г­ДЌДє</div>
                 </div>
             </div>
         </div>
@@ -31,78 +32,78 @@
             <div id="schedule-list" class="row g-4">
                 <div class="col-md-4 col-12">
                     <div class="card bg-success .bg-gradient h-100">
-                        <h5 class="card-header">Понедельник</h5>
+                        <h5 class="card-header">ДЋГ®Г­ДєГ¤ДєГ«ГјГ­ДЌД™</h5>
                         <div class="card-body p-4">
-                            <h6>I неделя</h6>
-                            <div id="schedule-monday-week1">Расписание не задано</div>
+                            <h6>I Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-monday-week1">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                             <hr />
-                            <h6>II неделя</h6>
-                            <div id="schedule-monday-week2">Расписание не задано</div>
+                            <h6>II Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-monday-week2">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="card bg-info .bg-gradient h-100">
-                        <h5 class="card-header">Вторник</h5>
+                        <h5 class="card-header">Г‚Е€Г®Д‘Г­ДЌД™</h5>
                         <div class="card-body p-4">
-                            <h6>I неделя</h6>
-                            <div id="schedule-tuesday-week1">Расписание не задано</div>
+                            <h6>I Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-tuesday-week1">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                             <hr />
-                            <h6>II неделя</h6>
-                            <div id="schedule-tuesday-week2">Расписание не задано</div>
+                            <h6>II Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-tuesday-week2">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="card bg-warning .bg-gradient h-100">
-                        <h5 class="card-header">Среда</h5>
+                        <h5 class="card-header">ЕѓД‘ДєГ¤Е•</h5>
                         <div class="card-body p-4">
-                            <h6>I неделя</h6>
-                            <div id="schedule-wednesday-week1">Расписание не задано</div>
+                            <h6>I Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-wednesday-week1">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                             <hr />
-                            <h6>II неделя</h6>
-                            <div id="schedule-wednesday-week2">Расписание не задано</div>
+                            <h6>II Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-wednesday-week2">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="card bg-secondary .bg-gradient h-100">
-                        <h5 class="card-header">Четверг</h5>
+                        <h5 class="card-header">Г—ДєЕ€ГўДєД‘Дѓ</h5>
                         <div class="card-body p-4">
-                            <h6>I неделя</h6>
-                            <div id="schedule-thursday-week1">Расписание не задано</div>
+                            <h6>I Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-thursday-week1">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                             <hr />
-                            <h6>II неделя</h6>
-                            <div id="schedule-thursday-week2">Расписание не задано</div>
+                            <h6>II Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-thursday-week2">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="card bg-danger .bg-gradient h-100">
-                        <h5 class="card-header">Пятница</h5>
+                        <h5 class="card-header">ДЋЛ™Е€Г­ДЌГ¶Е•</h5>
                         <div class="card-body p-4">
-                            <h6>I неделя</h6>
-                            <div id="schedule-friday-week1">Расписание не задано</div>
+                            <h6>I Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-friday-week1">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                             <hr />
-                            <h6>II неделя</h6>
-                            <div id="schedule-friday-week2">Расписание не задано</div>
+                            <h6>II Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-friday-week2">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="card bg-light .bg-gradient h-100">
-                        <h5 class="card-header">Суббота</h5>
+                        <h5 class="card-header">ЕѓГіГЎГЎГ®Е€Е•</h5>
                         <div class="card-body p-4">
-                            <h6>I неделя</h6>
-                            <div id="schedule-saturday-week1">Расписание не задано</div>
+                            <h6>I Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-saturday-week1">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                             <hr />
-                            <h6>II неделя</h6>
-                            <div id="schedule-saturday-week2">Расписание не задано</div>
+                            <h6>II Г­ДєГ¤ДєГ«Л™</h6>
+                            <div id="schedule-saturday-week2">ДђЕ•Е„ДЏДЌЕ„Е•Г­ДЌДє Г­Дє Г§Е•Г¤Е•Г­Г®</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#modalka" class="btn btn-primary col-12" id="add-schedule" style="--bs-btn-padding-x: .5rem;">Добавить расписание</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modalka" class="btn btn-primary col-12" id="add-schedule" style="--bs-btn-padding-x: .5rem;">Г„Г®ГЎЕ•ГўДЌЕ€Гј Д‘Е•Е„ДЏДЌЕ„Е•Г­ДЌДє</button>
                 </div>
             </div>
         </div>
