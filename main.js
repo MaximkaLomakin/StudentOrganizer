@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const scheduleList = document.getElementById('schedule-list');
     const reminderList = document.getElementById('reminder-list');
+    const gradeList = document.getElementById('grade-list');
     const reminderData = [];
+    const gradeData = [];
     const scheduleData = {
         1: { // Первая неделя
             monday: [],
@@ -39,6 +41,25 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     };
 
+    function getUniqueSubjects() {
+        const subjects = new Set();
+        const result = [];
+        for (const week in scheduleData) {
+            const days = scheduleData[week];
+            for (const day in days) {
+                days[day].forEach(item => {
+                    if (item.subject) {
+                        subjects.add(item.subject.trim());
+                    }
+                });
+            }
+        }
+        subjects.forEach((item, index) => {
+            label = value = item;
+            result.push({ label, value })
+        });
+        return result;
+    }
 
     document.getElementById('add-schedule').addEventListener('click', () => {
         createModalDialog('Добавить занятие', [
@@ -77,6 +98,17 @@ document.addEventListener('DOMContentLoaded', function () {
         ], ({ reminder, deadline }) => {
             reminderData.push({ reminder, deadline});
             renderReminders();
+        });
+    });
+
+    document.getElementById('add-grade').addEventListener('click', () => {
+        createModalDialog('Добавить оценку', [
+            { label: 'Предмет', name: 'subject', type: 'select', required: true, options: getUniqueSubjects() },
+            { label: 'Оценка', name: 'grade', type: 'number', required: true },
+            { label: 'Примечание', name: 'note', type: 'text', required: false },
+        ], ({ subject, grade, note}) => {
+            gradeData.push({ subject, grade, note});
+            renderGrades();
         });
     });
 
@@ -172,6 +204,55 @@ document.addEventListener('DOMContentLoaded', function () {
         table.appendChild(tbody);
         reminderList.appendChild(table);
     };
+    
+    const renderGrades = () => {
+        if (!gradeData.length) {
+            gradeList.innerHTML = '<div class="text-center fw-bold">Оценки отсутствуют.</div>';
+            return;
+        }
+        gradeList.innerHTML = '';
+
+        const table = document.createElement('table');
+        table.className = 'table table-hover';
+        const thead = document.createElement('thead');
+        thead.innerHTML = `<tr><th>Предмет</th><th>Оценка</th><th>Примечание</th><th>Действия</th></tr>`;
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+
+        gradeData.forEach(grade => {
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            titleCell.textContent = grade.subject;
+            row.appendChild(titleCell);
+
+            const gradeCell = document.createElement('td');
+            gradeCell.textContent = grade.grade;
+            row.appendChild(gradeCell);
+
+            const noteCell = document.createElement('td');
+            noteCell.textContent = grade.note;
+            row.appendChild(noteCell);
+
+            const actionsCell = document.createElement('td');
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
+            deleteButton.classList.add('btn', 'btn-primary');
+            deleteButton.addEventListener('click', () => {
+                const index = gradeData.indexOf(grade);
+                if (index > -1) gradeData.splice(index, 1);
+                renderGrades(); // Обновляем оценки
+            });
+            actionsCell.appendChild(deleteButton);
+            row.appendChild(actionsCell);
+
+            tbody.appendChild(row);
+        });
+
+        table.appendChild(tbody);
+        gradeList.appendChild(table);
+    };
 
     const renderSchedule = () => {
         console.log(scheduleData);
@@ -208,4 +289,5 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     renderSchedule();
     renderReminders();
+    renderGrades();
 });
