@@ -298,8 +298,15 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         await ipcRenderer.invoke('save-data', data);
     };
+    async function loadData() {
+        
+        const data = await ipcRenderer.invoke('load-data');
+        scheduleData = data.schedule;
+        renderSchedule();
+        reminderData = data.reminders;
+        renderReminders();
+        gradeData = data.grades;
+        renderGrades();
+    };
 
-    renderSchedule();
-    renderReminders();
-    renderGrades();
 });
