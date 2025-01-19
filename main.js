@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-grade').addEventListener('click', () => {
         createModalDialog('Добавить оценку', [
             { label: 'Предмет', name: 'subject', type: 'select', required: true, options: getUniqueSubjects() },
-            { label: 'Оценка', name: 'grade', type: 'number', required: true },
+            { label: 'Оценка', name: 'grade', type: 'number', min: -300, max: 300, required: true },
             { label: 'Примечание', name: 'note', type: 'text', required: false },
         ], ({ subject, grade, note}) => {
             gradeData.push({ subject, grade, note});
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             `: `
                                     <div class="mb-3">
                                         <label class="col-form-label">${field.label}</label>
-                                        <input type="${field.type || 'text'}" name="${field.name}" class="form-control" ${field.required ? 'required' : ''}>
+                                        <input type="${field.type || 'text'}" ${field.min ? 'min=' + field.min : ''} ${field.max ? 'max=' + field.max : ''} name="${field.name}" class="form-control" ${field.required ? 'required' : ''}>
                                     </div>
                                   `).join('')}
                             </div>
