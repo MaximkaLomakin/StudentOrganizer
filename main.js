@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     { value: 'saturday', label: 'Суббота' },
                 ]
             },
-            { label: 'Порядок занятия (например, номер пары)', name: 'order', required: true, type: 'number' },
+            { label: 'Порядок занятия (например, номер пары)', name: 'order', min: 1, max: 12, required: true, type: 'number' },
             {
                 label: 'Номер недели', name: 'week', required: true, type: 'select', options: [
                     { value: '1', label: 'Первая неделя' },
