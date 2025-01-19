@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-reminder').addEventListener('click', () => {
         createModalDialog('Добавить напоминание', [
             { label: 'Напоминание', name: 'reminder', required: true },
-            { label: 'Дедлайн (дата)', name: 'deadline', type: 'date', required: true },
+            { label: 'Дедлайн (дата)', name: 'deadline', type: 'date', min: `${new Date().getFullYear()}-${new Date().getMonth() < 9 ? '0' : ''}${new Date().getMonth() + 1}-${new Date().getDate() < 9 ? '0' : ''}${new Date().getDate()}`, max: `${new Date().getFullYear() + 1}-${new Date().getMonth() < 9 ? '0' : ''}${new Date().getMonth() + 1}-${new Date().getDate() < 9 ? '0' : ''}${new Date().getDate()}`, required: true },
         ], ({ reminder, deadline }) => {
             reminderData.push({ reminder, deadline});
             renderReminders();
