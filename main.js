@@ -112,9 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
         ], ({ subject, grade, note}) => {
             gradeData.push({ subject, grade, note});
             renderGrades();
-        }, (getUniqueSubjects()[0].value == -1 ? 'true' : 'false'));
+        }, (getUniqueSubjects()[0].value == -1 ? true : false));
     });
-
     function createModalDialog(title, fields, onSubmit, disabled) {
         saveData()
         const modal = document.getElementById('modalka');
