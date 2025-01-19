@@ -37,3 +37,12 @@ ipcMain.handle('save-data', (event, data) => {
         return { success: false, error: error.message };
     }
 });
+ipcMain.handle('load-data', async () => {
+    try {
+        const data = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
+        return data;
+    } catch (error) {
+        console.error('Error loading data:', error);
+        return { schedule: [], reminders: [], grades: [] };
+    }
+});

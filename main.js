@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const scheduleList = document.getElementById('schedule-list');
     const reminderList = document.getElementById('reminder-list');
     const gradeList = document.getElementById('grade-list');
-    const reminderData = [];
-    const gradeData = [];
-    const scheduleData = {
+    reminderData = [];
+    gradeData = [];
+    scheduleData = {
         1: { // Первая неделя
             monday: [],
             tuesday: [],
@@ -296,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
             reminders: reminderData,
             grades: gradeData
         };
+        console.log(reminderData);
         await ipcRenderer.invoke('save-data', data);
     };
     async function loadData() {
@@ -308,5 +309,6 @@ document.addEventListener('DOMContentLoaded', function () {
         gradeData = data.grades;
         renderGrades();
     };
-
+    loadData();
+    window.addEventListener('beforeunload', saveData);
 });
