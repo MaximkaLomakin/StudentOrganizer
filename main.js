@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
             label = value = item;
             result.push({ label, value })
         });
-        return result;
+        console.log(result);
+        return (result.length ? result : [{ label: 'Предметы не добавлены', value: '-1' }]);
     }
 
     document.getElementById('add-schedule').addEventListener('click', () => {
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scheduleData[week][day].sort((a, b) => a.order - b.order); // Сортируем занятия по порядку
                 renderSchedule();
             }
-        });
+        }, false);
     });
 
     document.getElementById('add-reminder').addEventListener('click', () => {
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ], ({ reminder, deadline }) => {
             reminderData.push({ reminder, deadline});
             renderReminders();
-        });
+        },false);
     });
 
     document.getElementById('add-grade').addEventListener('click', () => {
@@ -111,10 +112,10 @@ document.addEventListener('DOMContentLoaded', function () {
         ], ({ subject, grade, note}) => {
             gradeData.push({ subject, grade, note});
             renderGrades();
-        });
+        }, (getUniqueSubjects()[0].value == -1 ? 'true' : 'false'));
     });
 
-    function createModalDialog(title, fields, onSubmit) {
+    function createModalDialog(title, fields, onSubmit, disabled) {
         saveData()
         const modal = document.getElementById('modalka');
         const modalBS = bootstrap.Modal.getInstance(modal)
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                  ${fields.map(field => field.type === 'select' ? `
                                     <div class="mb-3">
                                         <label class="col-form-label">${field.label}</label>
-                                        <select name="${field.name}" class="form-select" aria-label="Выберите неделю">
+                                        <select name="${field.name}"  ${field.min ? 'min=' + field.min : ''} ${field.max ? 'max=' + field.max : ''} class="form-select" aria-label="Выберите неделю">
                                             ${field.options.map(option =>
             `<option value="${option.value}">${option.label}</option>
                                             `).join('')}
@@ -144,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary cancel" data-bs-dismiss="modal">Отмена</button>
-                                <button type="submit" class="btn btn-primary">Добавить</button>
+                                <button type="submit" ${disabled ? 'disabled' : ''} class="btn btn-primary">Добавить</button>
                             </div>
                         </form>
         `;
