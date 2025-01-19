@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+
 document.addEventListener('DOMContentLoaded', function () {
     const scheduleList = document.getElementById('schedule-list');
     const reminderList = document.getElementById('reminder-list');
@@ -113,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function createModalDialog(title, fields, onSubmit) {
+        saveData()
         const modal = document.getElementById('modalka');
         const modalBS = bootstrap.Modal.getInstance(modal)
         const block = modal.querySelector(".modal-content")
@@ -287,6 +290,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     };
+    async function saveData() {
+        const data = {
+            schedule: scheduleData,
+            reminders: reminderData,
+            grades: gradeData
+        };
+        await ipcRenderer.invoke('save-data', data);
+    };
+
     renderSchedule();
     renderReminders();
     renderGrades();
