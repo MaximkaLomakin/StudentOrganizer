@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const row = document.createElement('tr');
 
             const titleCell = document.createElement('td');
+            titleCell.classList.add('text-break');
             titleCell.textContent = reminder.reminder;
             row.appendChild(titleCell);
 
@@ -228,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const titleCell = document.createElement('td');
             titleCell.textContent = grade.subject;
+            titleCell.classList.add('text-break');
             row.appendChild(titleCell);
 
             const gradeCell = document.createElement('td');
@@ -236,6 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const noteCell = document.createElement('td');
             noteCell.textContent = grade.note;
+            noteCell.classList.add('text-break');
             row.appendChild(noteCell);
 
             const actionsCell = document.createElement('td');
@@ -272,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scheduleData[week][day].forEach(item => {
                     const block = document.createElement('div');
                     block.className = 'schedule-item';
-                    block.classList.add('d-flex', 'justify-content-between');
+                    block.classList.add('d-flex', 'justify-content-between', 'text-break');
                     block.textContent = `${item.order}. ${item.subject} ${item.notes ? `- ${item.notes}` :``}`
                     block.setAttribute('data-order', item.order);
                      
