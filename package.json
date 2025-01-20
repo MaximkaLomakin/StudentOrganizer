@@ -1,6 +1,6 @@
 {
   "name": "student-organizer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "StudentOrganizer",
   "main": "app.js",
   "author": "Корчуганов Максим, Костюкевич Кирилл, Чикида Данила, Мицкевич Кирилл",
@@ -9,8 +9,22 @@
     "eslint": "^8.21.0"
   },
   "eslintConfig": {},
+  "build": {
+    "productName": "Органайзер студента",
+    "appId": "com.bstu.student-organizer",
+    "win": {
+      "certificateFile": "Maximka.pfx",
+      "publisherName":  "BSTU Students"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+
+  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "repository": {
     "type": "git",
