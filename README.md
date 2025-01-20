@@ -13,6 +13,9 @@
 
 Список требований в формате Product Backlog - [перейти](https://github.com/MaximkaLomakin/StudentOrganizer/wiki/Список-требований-в-формате-Product-Backlog)
 
+---
+Отчёт по проекту - [Перейти](https://github.com/MaximkaLomakin/StudentOrganizer/wiki/Отчёт-по-проекту)
+
 ## Основные функции
 
 ### Расписание занятий
